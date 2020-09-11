@@ -82,7 +82,7 @@
 <body>
     <div class="topnav">
         <c>Credit Manager</c>
-        <a onclick="location.href='a.html'">Home</a>
+        <a onclick="location.href='index.html'">Home</a>
         <a href="#transfercredit">Transfer Credit</a>
         <a onclick="location.href='about.html'">About</a>
     </div>
