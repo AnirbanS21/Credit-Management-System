@@ -33,6 +33,8 @@
         .topnav a:hover {
           background-color: #ddd;
           color: black;
+          cursor: pointer;
+          transition: 0.5s;
         }
         
         .topnav a.active {
@@ -48,6 +50,23 @@
             padding-right: 10%;
             padding-top: 10%;
         }
+        div.imp1{
+          text-align:center;
+          margin: auto;
+          width: 50%;
+          padding-top: 10%;
+        }
+        @media screen and (min-width: 601px) {
+          div.imp1 {
+            width: 50%;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          div.imp1 {
+            width: 38%;
+          }
+        }
         .hello {
             font-size: 55px;
         }
@@ -62,16 +81,110 @@
             border-radius: 5px;
             border-color: dodgerblue;
         }
+         @media screen and (min-width: 601px) {
+          .topnav a.navbutton {
+            font-size: 20px;
+            padding: 30px 16px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          .topnav a.navbutton {
+            font-size: 15px;
+            padding: 20px 6px;
+          }
+        }
+        .topnav a.active {
+          background-color: #4CAF50;
+          color: white;
+        }
+        /*.CreditManager :hover{
+            background-color: #f2f2f2;
+            color: black;
+        }*/
+        .imp {
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 10%;
+        }
+        
+        .hello {
+            font-size: 55px;
+        }
+        @media screen and (min-width: 601px) {
+          a.hello {
+            font-size: 55px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          a.hello {
+            font-size: 35px;
+          }
+        }
+        .transfer {
+            font-size: 30px;
+        }
+        @media screen and (min-width: 601px) {
+          a.transfer {
+            font-size: 30px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          a.transfer {
+            font-size: 20px;
+          }
+        }
+        input.takemethere {
+            position: relative;
+            padding: 10px;
+            font-size: 25px;
+            background-color: dodgerblue;
+            border-radius: 5px;
+            border-color: dodgerblue;
+        }
+        @media screen and (min-width: 601px) {
+          input.takemethere {
+            font-size: 25px;
+            padding: 10px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          input.takemethere {
+            font-size: 15px;
+            padding: 7px;
+          }
+        }
+        @media screen and (min-width: 601px) {
+          .topnav c.credits {
+            font-size: 30px;
+            padding: 20px 16px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          .topnav c.credits {
+            font-size: 20px;
+            padding: 15px 11px;
+          }
+        }
+        .limit{
+          padding:10px;
+        }
+        
         </style>
 </head>
 <body>
     <div class="topnav">
-        <c>Credit Manager</c>
-        <a onclick="location.href='a.html'">Home</a>
-        <a onclick="location.href='b.php'">Transfer Credit</a>
-        <a onclick="location.href='about.html'">About</a>
+        <c class="credits">Credit Manager</c>
+        <a class="navbutton" onclick="location.href='a.html'">Home</a>
+        <a class="navbutton" onclick="location.href='b.php'">Transfer Credit</a>
+        <a class="navbutton" onclick="location.href='about.html'">About</a>
     </div>
     <div class="imp1">
+      
         <form action="success.php">
             <label for="receivers">Choose a recipient:</label>
                 <select id="receiver" name="receiver">
@@ -107,7 +220,7 @@
                     //$conn->close();
                     ?>
                 </select>
-                <div>
+                <div class="limit">
                     <a>Limit:
                     <input type = "number" id="limit" name="limit" min="0" max=
                         <?php
@@ -122,9 +235,9 @@
                 </div>
                 <input type="hidden" id="sender" name="sender" value=<?php echo"$sr_no"?>>
 
-                <input type="submit" name="submit">
+                <input class="takemethere" type="submit" name="submit">
         </form>
-        
+       
                 
     </div>
     

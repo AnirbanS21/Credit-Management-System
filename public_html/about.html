@@ -24,6 +24,7 @@
           font-size: 30px;
           
         }
+        
         .topnav a {
             font-size: 20px;
             text-align: center;
@@ -33,8 +34,23 @@
         .topnav a:hover {
           background-color: #ddd;
           color: black;
+          cursor: pointer;
+          transition: 0.5s;
         }
         
+        @media screen and (min-width: 601px) {
+          .topnav a.navbutton {
+            font-size: 20px;
+            padding: 30px 16px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          .topnav a.navbutton {
+            font-size: 15px;
+            padding: 20px 6px;
+          }
+        }
         .topnav a.active {
           background-color: #4CAF50;
           color: white;
@@ -44,14 +60,38 @@
             color: black;
         }*/
         .imp {
-            padding-left: 100px;
+            padding-left: 10%;
+            padding-right: 10%;
             padding-top: 10%;
         }
         .hello {
             font-size: 55px;
         }
+        @media screen and (min-width: 601px) {
+          a.hello {
+            font-size: 55px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          a.hello {
+            font-size: 35px;
+          }
+        }
         .transfer {
             font-size: 30px;
+            padding-bottom: 10%;
+        }
+        @media screen and (min-width: 601px) {
+          a.transfer {
+            font-size: 30px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          a.transfer {
+            font-size: 20px;
+          }
         }
         .takemethere {
             position: relative;
@@ -61,14 +101,27 @@
             border-radius: 5px;
             border-color: dodgerblue;
         }
+        @media screen and (min-width: 601px) {
+          .topnav c.credits {
+            font-size: 30px;
+            padding: 20px 16px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          .topnav c.credits {
+            font-size: 20px;
+            padding: 15px 11px;
+          }
+        }
         </style>
 </head>
 <body>
     <div class="topnav">
-        <c>Credit Manager</c>
-        <a onclick="location.href='a.html'">Home</a>
-        <a onclick="location.href='b.php'">Transfer Credit</a>
-        <a href="#about">About</a>
+        <c class="credits">Credit Manager</c>
+        <a class="navbutton" onclick="location.href='a.html'">Home</a>
+        <a class="navbutton" onclick="location.href='b.php'">Transfer Credit</a>
+        <a class="navbutton" href="#about">About</a>
     </div>
     <div class="imp">
         <div>

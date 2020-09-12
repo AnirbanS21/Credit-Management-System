@@ -33,6 +33,8 @@
         .topnav a:hover {
           background-color: #ddd;
           color: black;
+          cursor: pointer;
+          transition: 0.5s;
         }
         
         .topnav a.active {
@@ -80,7 +82,11 @@
         }
         .hyper{
             cursor:pointer;
-            color:blue;
+            color:rgb(0,119,234);
+            
+        }
+        .hyper:hover{
+            color:rgb(107,182,255);
             text-decoration:underline;
         }
         span {
@@ -88,15 +94,94 @@
             color:blue;
             text-decoration:underline;
         }
+         @media screen and (min-width: 601px) {
+          .topnav a.navbutton {
+            font-size: 20px;
+            padding: 30px 16px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          .topnav a.navbutton {
+            font-size: 15px;
+            padding: 20px 6px;
+          }
+        }
+        .topnav a.active {
+          background-color: #4CAF50;
+          color: white;
+        }
+        /*.CreditManager :hover{
+            background-color: #f2f2f2;
+            color: black;
+        }*/
+        .imp {
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 10%;
+        }
+        .note{
+            padding-bottom:30px;
+        }
+        .hello {
+            font-size: 55px;
+        }
+        @media screen and (min-width: 601px) {
+          a.hello {
+            font-size: 55px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          a.hello {
+            font-size: 35px;
+          }
+        }
+        .transfer {
+            font-size: 30px;
+        }
+        @media screen and (min-width: 601px) {
+          a.transfer {
+            font-size: 30px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          a.transfer {
+            font-size: 20px;
+          }
+        }
+        .takemethere {
+            position: relative;
+            padding: 10px;
+            font-size: 25px;
+            background-color: dodgerblue;
+            border-radius: 5px;
+            border-color: dodgerblue;
+        }
+        @media screen and (min-width: 601px) {
+          .topnav c.credits {
+            font-size: 30px;
+            padding: 20px 16px;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          .topnav c.credits {
+            font-size: 20px;
+            padding: 15px 11px;
+          }
+        }
+        
     
         </style>
 </head>
 <body>
     <div class="topnav">
-        <c>Credit Manager</c>
-        <a onclick="location.href='a.html'">Home</a>
-        <a href="#transfercredit">Transfer Credit</a>
-        <a onclick="location.href='about.html'">About</a>
+        <c class="credits">Credit Manager</c>
+        <a class="navbutton" onclick="location.href='a.html'">Home</a>
+        <a class="navbutton" href="#transfercredit">Transfer Credit</a>
+        <a class="navbutton" onclick="location.href='about.html'">About</a>
     </div>
     <div class="imp">
         <table>
@@ -121,20 +206,20 @@
                 if ($result-> num_rows >0) {
                     while ($row = $result-> fetch_assoc()) {
                         echo "<tr><td>". $row["sr_no"] ."</td>
-                                  <td class='hyper'onclick=location.href='c.php?sr_no=". $row["sr_no"] ."'>". $row["name"] ."</td>
+                                  <td class='hyper' onclick=location.href='c.php?sr_no=". $row["sr_no"] ."'>". $row["name"] ."</td>
                                   <td>". $row["credits"] ."</td>
                               </tr>";
                     }
                     echo "</table>";    
                 }
                 else {
-                    echo "0 result";
+                    echo "Please refresh the page as there was an error loading the data";
                 }
                 $conn->close();
                 ?>
               </tr>
         </table>
     </div>
-    <div class="note">Tip: Click on one the given names to select the Sender</div>
+    <div class="note">Tip💡: Click on one the given names to select the Sender</div>
 </body>
 </html>
