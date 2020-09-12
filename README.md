@@ -7,4 +7,5 @@ The requirements were as follows:
 - Flow: Home Page > View all Users > Select and View one User > Transfer Credit > Select user to transfer to > View all Users. Credit is sort of points which can be transferred from one user to another user. ◇ No Login Page. No User Creation. Only transfer of credit between multiple users. 
 - Host the website at 000webhost, github.io, heroku app or any other free hosting provider. Check in code in gitlab.
 
-## The working app is deployed on 000webhost. ##Link: [Credit Management WebApp](https://credit-management-webapp.000webhostapp.com/)
+## The working app is deployed on 000webhost.
+## Link: [Credit Management WebApp](https://credit-management-webapp.000webhostapp.com/)
