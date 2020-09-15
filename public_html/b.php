@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transfer Credits</title>
     <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display-swap');
         body {
           margin: 0;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: 'Open Sans', sans-serif;
         }
         
         .topnav {
@@ -66,7 +67,7 @@
             border-color: dodgerblue;
         }
         table {
-            font-family: arial, sans-serif;
+            font-family: inherit;
             border-collapse: collapse;
             width: 100%;
         }

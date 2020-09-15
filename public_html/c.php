@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trasnfer Credit Details</title>
     <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display-swap');
+    /** {*/
+    /*    box-sizing: border-box;*/
+    /*}*/
         body {
           margin: 0;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: 'Open Sans', sans-serif;
+          align-items:center;
         }
         
         .topnav {
@@ -45,28 +50,15 @@
             background-color: #f2f2f2;
             color: black;
         }*/
-        .imp, .imp1{
+        .imp{
             padding-left: 10%;
             padding-right: 10%;
             padding-top: 10%;
         }
         div.imp1{
-          text-align:center;
-          margin: auto;
-          width: 50%;
-          padding-top: 10%;
-        }
-        @media screen and (min-width: 601px) {
-          div.imp1 {
-            width: 50%;
-          }
+          
         }
         
-        @media screen and (max-width: 600px) {
-          div.imp1 {
-            width: 38%;
-          }
-        }
         .hello {
             font-size: 55px;
         }
@@ -173,7 +165,68 @@
         .limit{
           padding:10px;
         }
-        
+        /*form {*/
+            /*display: flex;*/
+        /*    align-items: center;*/
+        /*    justify-content: center;*/
+        /*    min-height: 100vh;*/
+        /*  margin: 0;*/
+        /*  font-family: Arial, Helvetica, sans-serif;*/
+        /*}*/
+        /*form{*/
+            /*padding: 10%;*/
+        /*    width: 400px;*/
+        /*    max-width:100%;*/
+        /*}*/
+        .imp1 {
+            /*padding-top:100px;*/
+            /*display:flex;*/
+            /*align-items:center;*/
+            /*justify-content:center;*/
+            text-align:center;
+            margin: auto;
+            width: 400px;
+            max-width:100%;
+            /*padding-top: 10%;*/
+            background-color: #eee;
+            border-radius:5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            width:500px;
+            max-width:100%;
+            overflow: hidden;
+            padding-bottom:30px;
+        }
+        h2 {
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 20px 40px;
+            margin 0;
+        }
+        .info {
+            font-style: bold;
+            font-size: 22px;
+            padding-bottom: 30px;
+        }
+        form {
+            margin-bottom: 10px;
+            /*padding-bottom: 20px;*/
+            position: relative;
+        }
+        /*form label{*/
+        /*    display: inline-block;*/
+        /*    margin-bottom: 5px;*/
+        /*}*/
+        /*form input.limit, receiver {*/
+            
+        /*    border: 2px solid #f0f0f0;*/
+        /*    border-radius: 4px;*/
+        /*    display: block;*/
+        /*    padding:10px;*/
+        /*    width: 100%;*/
+        /*    font-family: inherit;*/
+        /*    font-size: 14px;*/
+            
+        /*}*/
         </style>
 </head>
 <body>
@@ -183,25 +236,53 @@
         <a class="navbutton" onclick="location.href='b.php'">Transfer Credit</a>
         <a class="navbutton" onclick="location.href='about.html'">About</a>
     </div>
+    <div style="height:50px"></div>
     <div class="imp1">
-      
+        <h2>Transfer Credits</h2>
+      <?php
+        $hostname = "localhost";
+        $username = "id14836882_root";
+        $password = "Aj7u&V7Lfdd.MGX";
+        $database = "id14836882_credit_storage";
+        $conn =mysqli_connect($hostname, $username, $password, $database);
+        if($conn-> connect_error) {
+            die("connection failed:". $conn-> connect_error);
+        }
+        $sql = "Select sr_no, name, credits from owners";
+        $result = $conn-> query($sql);
+        $sr_no= intval($_GET['sr_no']);
+        $limit=0;
+        $mail="";
+        $mail_sql ="SELECT * from owners WHERE sr_no=".$sr_no;
+        $mail_result = $conn-> query($mail_sql);
+        $mail = $mail_result-> fetch_assoc();
+        //  echo $mail["mail"];
+        
+      ?>
+      <!--<div class="container">-->
         <form action="success.php">
+            <div class="info">Name of sender: 
+                <?php
+                 echo $mail["name"];
+                ?>
+                <br>
+                E-mail ID: 
+                <?php
+                 echo $mail["mail"];
+                ?>
+                <br>
+                Credits: 
+                <?php
+                 echo $mail["credits"];
+                ?>
+                
+            </div>
             <label for="receivers">Choose a recipient:</label>
                 <select id="receiver" name="receiver">
                     <option selected disabled>--select--</option>
                     <?php
-                    $hostname = "localhost";
-                    $username = "id14836882_root";
-                    $password = "Aj7u&V7Lfdd.MGX";
-                    $database = "id14836882_credit_storage";
-                    $conn =mysqli_connect($hostname, $username, $password, $database);
-                    if($conn-> connect_error) {
-                    die("connection failed:". $conn-> connect_error);
-                    }
-                    $sql = "Select sr_no, name, credits from owners";
-                    $result = $conn-> query($sql);
-                    $sr_no= intval($_GET['sr_no']);
-                    $limit=0;
+                    
+                    
                     if ($result-> num_rows >0) {
                         while ($row = $result-> fetch_assoc()) {
                             if ($sr_no != $row["sr_no"]) {
@@ -221,7 +302,7 @@
                     ?>
                 </select>
                 <div class="limit">
-                    <a>Limit:
+                    <a>Transfer Amount:
                     <input type = "number" id="limit" name="limit" min="0" max=
                         <?php
                             echo $limit ;
@@ -237,7 +318,7 @@
 
                 <input class="takemethere" type="submit" name="submit">
         </form>
-       
+       <!--</div>-->
                 
     </div>
     
