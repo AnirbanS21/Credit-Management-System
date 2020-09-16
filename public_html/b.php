@@ -173,8 +173,13 @@
             padding: 15px 11px;
           }
         }
-        
+        h1 {
+            text-align: center;
+        }
     
+        .msg{
+            color: red;
+        }
         </style>
 </head>
 <body>
@@ -185,8 +190,30 @@
         <a class="navbutton" onclick="location.href='about.html'">About</a>
     </div>
     <div class="imp">
+        <div class="msg">
+            <?php
+            $msg= intval($_GET['msg']);
+            if($msg==2)
+            {
+                echo "The transaction was Successful!!!👍";
+            }
+            else if($msg==1)
+            {
+                echo "The transcation could not be completed as no Receiver was chosen!!!❌❌";
+            }
+            else if($msg==3)
+            {
+                echo "The transcation could not be completed as no Amount was mentioned!!!❌❌";
+            }
+            ?>
+            
+        </div>
         <table>
+            
+            <!--<h2>Credit Details</h2>-->
+            
             <tr>
+                <h1>Credit Details</h1>
                 <th>Id</th>
                 <th>User name</th>
                 <th>Credits</th>
