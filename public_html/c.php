@@ -165,29 +165,13 @@
         .limit{
           padding:10px;
         }
-        /*form {*/
-            /*display: flex;*/
-        /*    align-items: center;*/
-        /*    justify-content: center;*/
-        /*    min-height: 100vh;*/
-        /*  margin: 0;*/
-        /*  font-family: Arial, Helvetica, sans-serif;*/
-        /*}*/
-        /*form{*/
-            /*padding: 10%;*/
-        /*    width: 400px;*/
-        /*    max-width:100%;*/
-        /*}*/
+        
         .imp1 {
-            /*padding-top:100px;*/
-            /*display:flex;*/
-            /*align-items:center;*/
-            /*justify-content:center;*/
+            
             text-align:center;
             margin: auto;
             width: 400px;
             max-width:100%;
-            /*padding-top: 10%;*/
             background-color: #eee;
             border-radius:5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
@@ -209,24 +193,9 @@
         }
         form {
             margin-bottom: 10px;
-            /*padding-bottom: 20px;*/
             position: relative;
         }
-        /*form label{*/
-        /*    display: inline-block;*/
-        /*    margin-bottom: 5px;*/
-        /*}*/
-        /*form input.limit, receiver {*/
-            
-        /*    border: 2px solid #f0f0f0;*/
-        /*    border-radius: 4px;*/
-        /*    display: block;*/
-        /*    padding:10px;*/
-        /*    width: 100%;*/
-        /*    font-family: inherit;*/
-        /*    font-size: 14px;*/
-            
-        /*}*/
+        
         </style>
 </head>
 <body>
@@ -256,10 +225,10 @@
         $mail_sql ="SELECT * from owners WHERE sr_no=".$sr_no;
         $mail_result = $conn-> query($mail_sql);
         $mail = $mail_result-> fetch_assoc();
-        //  echo $mail["mail"];
+
         
       ?>
-      <!--<div class="container">-->
+
         <form action="success.php">
             <div class="info">Name of sender: 
                 <?php
@@ -318,7 +287,7 @@
 
                 <input class="takemethere" type="submit" name="submit">
         </form>
-       <!--</div>-->
+
                 
     </div>
     

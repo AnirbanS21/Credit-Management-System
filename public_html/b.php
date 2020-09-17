@@ -177,8 +177,11 @@
             text-align: center;
         }
     
-        .msg{
+        .msg2{
             color: red;
+        }
+        .msg{
+            color: green;
         }
         </style>
 </head>
@@ -197,16 +200,21 @@
             {
                 echo "The transaction was Successful!!!👍";
             }
-            else if($msg==1)
+            
+            ?>
+            
+        </div>
+        <div class="msg2">
+            <?php
+            if($msg==1)
             {
-                echo "The transcation could not be completed as no Receiver was chosen!!!❌❌";
+                echo "The transaction could not be completed as no Receiver was chosen!!!❌❌";
             }
             else if($msg==3)
             {
-                echo "The transcation could not be completed as no Amount was mentioned!!!❌❌";
+                echo "The transaction could not be completed as no Amount was mentioned!!!❌❌";
             }
             ?>
-            
         </div>
         <table>
             

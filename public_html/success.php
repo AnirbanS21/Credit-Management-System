@@ -11,14 +11,32 @@
     }
     $sender= intval($_GET['sender']);
     $receiver= intval($_GET['receiver']);
-    $amt= intval($_GET['limit']);
-    $sql= "UPDATE owners SET credits=credits-$amt where sr_no=$sender";
-    $result = $conn-> query($sql);
-    $sql= "UPDATE owners SET credits=credits+$amt where sr_no=$receiver";
-    $result = $conn-> query($sql);
-    $conn->close();
+    $count=0;
+    $check_sql ="SELECT COUNT(sr_no) FROM owners WHERE sr_no=". $receiver;
+    $count= $conn->query($check_sql);
+    // echo $count['count(sr_no)'];
+    $cnt = $count-> fetch_assoc();
+    if ($cnt['COUNT(sr_no)']>0)
+    {
+        
+        $amt= intval($_GET['limit']);
+        if ($amt=='')
+        {
+            header('Location: b.php?msg=3');
+            exit(0);
+        }
+        $sql= "UPDATE owners SET credits=credits-$amt where sr_no=$sender";
+        $result = $conn-> query($sql);
+        $sql= "UPDATE owners SET credits=credits+$amt where sr_no=$receiver";
+        $result = $conn-> query($sql);
+        header('Location: b.php?msg=2');
+        exit(0);
+    }
+    else
+    {
+        header('Location: b.php?msg=1');
+        exit(0);
+    }
 
-    //sleep(2);
-    header('Location: b.php');
-    exit(0);
+    
 ?>
